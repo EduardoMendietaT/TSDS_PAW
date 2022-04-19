@@ -76,6 +76,3 @@ export{nombre, setMessage2, Cuenta}
 
 //import * as myCode from 'ruta' 
 // myCode.variable
-
-
-// siguiente video --> 9
