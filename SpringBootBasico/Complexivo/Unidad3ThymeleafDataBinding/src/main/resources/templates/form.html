@@ -8,33 +8,78 @@
 </head>
 <body>
     <h3 th:text="${titulo}"></h3>
-    <form th:action="@{/form}"  method="post">
+    <form th:action="@{/form}" th:object="${usuario}"  method="post">
+
+         <!-- ************ campo identificador  ************ -->
+         <div style="border: 1px solid grey; padding: 10px; width: fit-content;">
+            <label for="identificador">Identificador: 
+                <input type="text" id="identificador" th:field="*{identificador}">
+            </label>
+            <!-- Validacion de errores -->
+            <div th:if="${#fields.hasErrors('identificador')}" th:errors="*{identificador}"></div>
+        </div>
+
+        <!-- ************ campo nombre  ************ -->
+        <div style="border: 1px solid grey; padding: 10px; width: fit-content;">
+            <label for="nombre">Nombre: 
+                <input type="text" id="nombre" th:field="*{nombre}">
+            </label>
+            <!-- Validacion de errores -->
+            <div th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"></div>
+        </div>
+
+        <!-- ************ campo apellido  ************ -->
+        <div style="border: 1px solid grey; padding: 10px; width: fit-content;">
+            <label for="apellido">Apellido: 
+                <input type="text" id="apellido" th:field="*{apellido}">
+            </label>
+            <!-- Validacion de errores -->
+            <div th:if="${#fields.hasErrors('apellido')}" th:errors="*{apellido}"></div>
+        </div>
 
         <!-- ************ campo username  ************ -->
         <div style="border: 1px solid grey; padding: 10px; width: fit-content;">
             <label for="username">Username: 
-                <input type="text" name="username" id="username" th:value="${usuario.username}">
+                <input type="text" id="username" th:field="*{username}">
             </label>
             <!-- Validacion de errores -->
-            <div th:if="${error != null && error.containsKey('username')}" th:text="${error.username}"></div>
+            <div th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></div>
         </div>
 
         <!-- ************ campo password  ************ -->
         <div style="border: 1px solid grey; padding: 10px; width: fit-content;">
             <label for="password">Password: 
-                <input type="password" name="password" id="password" th:value="${usuario.password}">
+                <input type="password" id="password" th:field="*{password}">
             </label>
             <!-- Validacion de errores -->
-            <div th:if="${error != null && error.containsKey('password')}" th:text="${error.password}"></div>
+            <div th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></div>
         </div>
 
         <!-- ************ campo email  ************ -->
         <div style="border: 1px solid grey; padding: 10px; width: fit-content;">
             <label for="email">Email: 
-                <input type="text" name="email" id="email" th:value="${usuario.email}">
+                <input type="text" id="email" th:field="*{email}">
             </label>
             <!-- Validacion de errores -->
-            <div th:if="${error != null && error.containsKey('email')}" th:text="${error.email}"></div>
+            <div th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></div>
+        </div>
+
+        <!-- ************ campo cuenta  ************ -->
+        <div style="border: 1px solid grey; padding: 10px; width: fit-content;">
+            <label for="cuenta">Cuenta: 
+                <input type="number" id="cuenta" th:field="*{cuenta}">
+            </label>
+            <!-- Validacion de errores -->
+            <div th:if="${#fields.hasErrors('cuenta')}" th:errors="*{cuenta}"></div>
+        </div>
+
+         <!-- ************ campo fecha  ************ -->
+         <div style="border: 1px solid grey; padding: 10px; width: fit-content;">
+            <label for="fecha">Fecha: 
+                <input type="text" id="fecha" th:field="*{fecha}" placeholder="yyyy/MM/dd">
+            </label>
+            <!-- Validacion de errores -->
+            <div th:if="${#fields.hasErrors('fecha')}" th:errors="*{fecha}"></div>
         </div>
 
         <!-- ************ Boton de envío  ************ -->
