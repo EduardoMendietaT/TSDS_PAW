@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:text="${titulo}"></title>
+</head>
+<body>
+    <h3 th:text="${titulo}"></h3>
+    <form th:action="@{/form}"  method="post">
+
+        <!-- ************ campo username  ************ -->
+        <div style="border: 1px solid grey; padding: 10px; width: fit-content;">
+            <label for="username">Username: 
+                <input type="text" name="username" id="username" th:value="${usuario.username}">
+            </label>
+            <!-- Validacion de errores -->
+            <div th:if="${error != null && error.containsKey('username')}" th:text="${error.username}"></div>
+        </div>
+
+        <!-- ************ campo password  ************ -->
+        <div style="border: 1px solid grey; padding: 10px; width: fit-content;">
+            <label for="password">Password: 
+                <input type="password" name="password" id="password" th:value="${usuario.password}">
+            </label>
+            <!-- Validacion de errores -->
+            <div th:if="${error != null && error.containsKey('password')}" th:text="${error.password}"></div>
+        </div>
+
+        <!-- ************ campo email  ************ -->
+        <div style="border: 1px solid grey; padding: 10px; width: fit-content;">
+            <label for="email">Email: 
+                <input type="text" name="email" id="email" th:value="${usuario.email}">
+            </label>
+            <!-- Validacion de errores -->
+            <div th:if="${error != null && error.containsKey('email')}" th:text="${error.email}"></div>
+        </div>
+
+        <!-- ************ Boton de envío  ************ -->
+        <div>
+            <input type="submit" value="Enviar">
+        </div>
+    </form>
+
+</body>
+</html>
